@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCADA Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .status {
+      font-size: 1.2rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>SCADA Dashboard</h1>
+  <div class="card">
+    <strong>Pump Status:</strong> <span class="status" id="pump">OFF</span>
+  </div>
+  <div class="card">
+    <strong>Temperature:</strong> <span id="temp">-- °C</span>
+  </div>
+  <script>
+    // จำลองข้อมูล
+    document.getElementById("pump").textContent = "ON";
+    document.getElementById("temp").textContent = (20 + Math.random() * 10).toFixed(1) + " °C";
+  </script>
+</body>
+</html>

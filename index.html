@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,20 +20,44 @@
       font-size: 1.2rem;
       color: green;
     }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <h1>SCADA Dashboard</h1>
+
   <div class="card">
-    <strong>Pump Status:</strong> <span class="status" id="pump">OFF</span>
+    <strong>Pump Status:</strong> <span class="status" id="pump">OFF</span><br>
+    <button onclick="togglePump()">Toggle Pump</button>
   </div>
+
   <div class="card">
-    <strong>Temperature:</strong> <span id="temp">-- °C</span>
+    <strong>Temperature:</strong> <span id="temp">-- °C</span><br>
+    <button onclick="randomTemp()">สุ่มอุณหภูมิ</button>
   </div>
+
   <script>
-    // จำลองข้อมูล
-    document.getElementById("pump").textContent = "ON";
-    document.getElementById("temp").textContent = (20 + Math.random() * 10).toFixed(1) + " °C";
+    let pumpOn = false;
+
+    function togglePump() {
+      pumpOn = !pumpOn;
+      const pumpEl = document.getElementById("pump");
+      pumpEl.textContent = pumpOn ? "ON" : "OFF";
+      pumpEl.style.color = pumpOn ? "green" : "red";
+    }
+
+    function randomTemp() {
+      const temp = (20 + Math.random() * 10).toFixed(1);
+      document.getElementById("temp").textContent = temp + " °C";
+    }
+
+    // เริ่มต้น
+    togglePump();
+    randomTemp();
   </script>
 </body>
 </html>
